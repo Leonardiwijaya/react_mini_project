@@ -61,3 +61,78 @@
 table {
     margin-bottom: 10px;
 }
+
+.carousel {
+    margin-bottom: 50px;
+    height: "545px";
+}
+
+.carousel-img {
+    width: 100%;
+    height: 545px;
+}
+
+.banner {
+    width: 94%; 
+    max-width: 1200px; 
+    margin: 40px auto;
+}
+
+.product-container {
+    /* border: 1px solid black; */
+    width: 94%;
+    margin: auto;
+}
+
+.product-header {
+    /* border: 1px solid green; */
+    margin-bottom: 20px;
+}
+
+.product-content {
+    /* border: 1px solid red; */
+    display: flex;
+    gap: 20px
+}
+
+.footer {
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    border-top: 1px solid rgba(63,63,63,.2);
+}
+
+.navbar-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 64px;
+    width: 100%;
+    padding: 10px 30px 10px 60px;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0 1px 2px #00000008,0 1px 6px -1px #00000005,0 2px 4px #00000005;
+}
+
+.navbar-content {
+    display: flex;
+    width: 100%;
+    /* border: 1px solid red; */
+    justify-content: space-between;
+}
+.navbar-menu {
+    display: flex;
+    border: 1px solid orange;
+    width: 50%;
+}
+
+.navbar-icons {
+    display: flex;
+    gap: 10px;
+    /* border: 1px solid black; */
+    font-size: 24px;
+}
