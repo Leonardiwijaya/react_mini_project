@@ -126,13 +126,32 @@ table {
 }
 .navbar-menu {
     display: flex;
-    border: 1px solid orange;
-    width: 50%;
+    /* border: 1px solid orange; */
+    gap: 30px;
+}
+.navbar-menu-list {
+    display: flex;
+    width: 100%;
+    /* border: 1px solid green; */
+    gap: 20px;
+    align-items: center;
 }
 
 .navbar-icons {
     display: flex;
     gap: 10px;
     /* border: 1px solid black; */
+    align-items: center;
     font-size: 24px;
+}
+
+.menu-link {
+    height: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+.menu-link:hover {
+    color: black;
+    opacity: 0.3;
 }

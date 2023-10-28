@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Button, Input } from "antd";
+import { Input } from "antd";
 import { UserOutlined, HeartOutlined } from "@ant-design/icons";
 import styles from "../assets/css/style.module.css";
 import { Link } from "react-router-dom";
+import Logo from "./logo";
 
 export default function Navbar(props) {
   const { Search } = Input;
@@ -11,17 +12,17 @@ export default function Navbar(props) {
       <nav className={styles["navbar-container"]}>
         <div className={styles["navbar-content"]}>
           <div className={styles["navbar-menu"]}>
-            <Link>
-            <img></img>
-            <h4>Fuku</h4>
-            </Link>
-            <a>Pria</a>
-            <a>Wanita</a>
-            <a>Anak</a>
-            <a>Bayi</a>
+            <Logo to="/"></Logo>
+            <div className={styles["navbar-menu-list"]}>
+              <Menu>PRIA</Menu>
+              <Menu>WANITA</Menu>
+              <Menu>ANAK</Menu>
+              <Menu>BAYI</Menu>
+            </div>
           </div>
           <div className={styles["navbar-icons"]}>
             <Search
+              onPressEnter={()=>{alert(2)}}
               placeholder="input search text"
               style={{
                 width: 200,
@@ -33,5 +34,13 @@ export default function Navbar(props) {
         </div>
       </nav>
     </>
+  );
+}
+
+function Menu(props) {
+  return (
+    <Link className={styles["menu-link"]}>
+      <h6>{props.children}</h6>
+    </Link>
   );
 }
