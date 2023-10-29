@@ -1,7 +1,7 @@
 import ProductCard from "./productCard";
 import styles from "../assets/css/style.module.css"
 
-export default function ProductList(props) {
+export default function ProductSection(props) {
     const {header} = props;
     return (<>
     <div className={styles["product-container"]}>
