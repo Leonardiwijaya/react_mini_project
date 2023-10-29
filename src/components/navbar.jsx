@@ -23,13 +23,13 @@ export default function Navbar(props) {
           <div className={styles["navbar-icons"]}>
             <Search
               onPressEnter={()=>{alert(2)}}
-              placeholder="input search text"
+              placeholder="search"
               style={{
                 width: 200,
               }}
             />
-            <HeartOutlined />
-            <UserOutlined />
+            <HeartOutlined className={styles["navbar-icon"]}/>
+            <UserOutlined className={styles["navbar-icon"]}/>
           </div>
         </div>
       </nav>
