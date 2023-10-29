@@ -14,10 +14,10 @@ export default function Navbar(props) {
           <div className={styles["navbar-menu"]}>
             <Logo to="/"></Logo>
             <div className={styles["navbar-menu-list"]}>
-              <Menu>PRIA</Menu>
-              <Menu>WANITA</Menu>
-              <Menu>ANAK</Menu>
-              <Menu>BAYI</Menu>
+              <Menu to="/Products/pria">PRIA</Menu>
+              <Menu to="/Products/wanita">WANITA</Menu>
+              <Menu to="/Products/anak">ANAK</Menu>
+              <Menu to="/Products/bayi">BAYI</Menu>
             </div>
           </div>
           <div className={styles["navbar-icons"]}>
@@ -39,7 +39,7 @@ export default function Navbar(props) {
 
 function Menu(props) {
   return (
-    <Link className={styles["menu-link"]}>
+    <Link to={props.to} className={styles["menu-link"]}>
       <h6>{props.children}</h6>
     </Link>
   );

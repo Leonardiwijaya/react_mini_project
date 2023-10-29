@@ -63,6 +63,7 @@ table {
 }
 
 .carousel {
+  margin-top: 63px;
   margin-bottom: 50px;
   height: "545px";
 }
@@ -187,10 +188,6 @@ table {
   border: 1px solid #f0f0f0;
 }
 
-.product-detail-content {
-  /* border: 1px solid blue; */
-}
-
 .product-detail-rate {
   display: flex;
   align-items: center;
@@ -256,4 +253,35 @@ table {
 
 .stock-total {
   font-weight: 600;
+}
+
+.product-list-container {
+  width: 94%;
+  margin: auto;
+  margin-top: 120px;
+  margin-bottom: 40px;
+  /* border: 1px solid red; */
+}
+
+.product-list-header {
+  /* border: 1px solid green; */
+  margin-bottom: 20px;
+}
+
+.product-list-content {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-card {
+  flex-basis: 23%;
+}
+
+.pagination {
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-end;
+  /* border: 1px solid red; */
 }
