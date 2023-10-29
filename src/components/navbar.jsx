@@ -2,10 +2,11 @@
 import { Input } from "antd";
 import { UserOutlined, HeartOutlined } from "@ant-design/icons";
 import styles from "../assets/css/style.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "./logo";
 
 export default function Navbar(props) {
+  const navigation = useNavigate();
   const { Search } = Input;
   return (
     <>
@@ -28,8 +29,9 @@ export default function Navbar(props) {
                 width: 200,
               }}
             />
-            <HeartOutlined className={styles["navbar-icon"]}/>
+            <HeartOutlined onClick={()=>navigation('/wishlist')} className={styles["navbar-icon"]}/>
             <UserOutlined className={styles["navbar-icon"]}/>
+            <p className={styles["user"]}>Leo</p>
           </div>
         </div>
       </nav>

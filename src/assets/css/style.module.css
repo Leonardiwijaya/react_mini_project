@@ -140,18 +140,27 @@ table {
 
 .navbar-icons {
   display: flex;
-  gap: 10px;
+  gap: 2px;
   /* border: 1px solid black; */
   align-items: center;
   font-size: 24px;
 }
 
 .navbar-icon {
+  /* border: 1px solid red; */
   cursor: pointer;
 }
 
 .navbar-icon:hover {
   opacity: 0.3;
+}
+
+.user {
+  margin: 0;
+  align-self: center;
+  font-size: 14px;
+  font-weight: 600;
+  /* border: 1px solid red; */
 }
 
 .menu-link {
@@ -189,17 +198,18 @@ table {
 }
 
 .product-detail-rate {
+  /* border: 1px solid black; */
   display: flex;
   align-items: center;
   gap: 5px;
 }
 .product-detail-star {
-  font-size: 16px;
+  font-size: 14px;
 }
 .product-detail-review {
   height: fit-content;
   padding-bottom: 2px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .product-detail-price {
@@ -283,5 +293,36 @@ table {
   margin-top: 40px;
   display: flex;
   justify-content: flex-end;
+  /* border: 1px solid red; */
+}
+
+.product-card-content {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-name {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: pre-wrap;
+  font-size: 14px;
+  font-weight: 400;
+  color: #212121;
+  margin-bottom: 5px;
+  /* border: 1px solid black; */
+  margin-bottom: 0;
+}
+
+.product-card-price {
+  font-weight: 500;
+  /* border: 1px solid red; */
+  margin-bottom: 0;
+}
+
+.wishlist-delete-button {
+  align-self: flex-end;
   /* border: 1px solid red; */
 }
