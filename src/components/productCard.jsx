@@ -1,9 +1,14 @@
 import React from "react";
 import { Card } from "antd";
+import styles from "../assets/css/style.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductCard(props) {
+  const navigation = useNavigate()
   return (
     <Card
+      onClick={()=>navigation('/product')}
+      className={styles["product-card"]}
       hoverable
       bordered
       cover={

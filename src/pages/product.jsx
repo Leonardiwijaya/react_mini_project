@@ -53,12 +53,12 @@ export default function Product(props) {
         </div>
       </div>
       <div className={styles["product-details"]}>
-        {/* <h6>Deskrispi</h6>
+        <h6>Deskrispi</h6>
         <p className={styles["product-detail-description"]}>
           Kemeja Anak yang terbuat dari bahan bertekstur lembut dan nyaman.
           Dengan potongan leluasa yang dapat dikenakan sendirinya atau sebagai
           outer layer.
-        </p> */}
+        </p>
       </div>
       <Footer></Footer>
     </>
