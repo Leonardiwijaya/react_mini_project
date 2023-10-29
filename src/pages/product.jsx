@@ -1,8 +1,9 @@
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import styles from "../assets/css/style.module.css";
-import { Button, Rate } from "antd";
+import { Button} from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
+import Rating from "../components/rating";
 
 export default function Product(props) {
   return (
@@ -21,14 +22,7 @@ export default function Product(props) {
             Aerostreet 36-45 Massive Low Hitam - Sepatu Sneakers Casual Sport
             Sekolah Pria Wanita Aero Street 21AA30
           </h4>
-          <div className={styles["product-detail-rate"]}>
-            <Rate
-              className={styles["product-detail-star"]}
-              disabled
-              defaultValue={5}
-            />
-            <span className={styles["product-detail-review"]}>(5)</span>
-          </div>
+          <Rating></Rating>
           <h4 className={styles["product-detail-price"]}>Rp 199.000</h4>
 
           <h6>Atur jumlah</h6>

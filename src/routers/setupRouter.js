@@ -5,6 +5,7 @@ import Home from "../pages/home";
 import Dashboard from "../pages/admin/dashboard";
 import Product from "../pages/product";
 import ProductList from "../pages/productList";
+import Wishlist from "../pages/wishlist";
 
 export default function SetupRouter() {
     return (
@@ -13,6 +14,7 @@ export default function SetupRouter() {
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/product" element={<Product/>}></Route>
                 <Route path="/products/:name" element={<ProductList/>}></Route>
+                <Route path="/wishlist" element={<Wishlist/>}></Route>
             </Route>
             <Route path="/admin">
                 <Route path="/admin" element={<Login/>}></Route>
