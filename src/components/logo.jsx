@@ -11,6 +11,9 @@ export default function Logo(props) {
         height: "100%",
         color: "black",
         alignItems: "center",
+        alignSelf: "center",
+        margin: 0,
+        padding: 0,
     }
     const imgStyle = {
         height: "50px",

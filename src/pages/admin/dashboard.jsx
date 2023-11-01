@@ -1,12 +1,17 @@
 import styles from "../../assets/css/style.module.css";
 import { Input, Button, Select } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
+import {
+  PlusOutlined,
+  ShoppingOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import React, { useState, useEffect } from "react";
 import { Form, InputNumber, Upload, Space, Table, Image } from "antd";
 import { APIProduct } from "../../apis/APIProduct";
+import { authAdmin } from "../../utils/auth";
+import Logo from "../../components/logo";
 
 function ProductForm() {
-  const [form] = Form.useForm();
   const onSubmit = (values) => {
     APIProduct.addProduct(values);
   };
@@ -29,7 +34,9 @@ function ProductForm() {
     <>
       <h4>Create Product</h4>
       <Form
-        onFinish={(values) => {onSubmit(values)}}
+        onFinish={(values) => {
+          onSubmit(values);
+        }}
         labelCol={{
           span: 4,
         }}
@@ -65,7 +72,7 @@ function ProductForm() {
           <InputNumber />
         </Form.Item>
         <Form.Item
-          label="Images"
+          label="Image"
           valuePropName="fileList"
           getValueFromEvent={normFile}
         >
@@ -98,6 +105,7 @@ function ProductForm() {
 }
 
 export default function Dashboard(props) {
+  console.log(authAdmin.isAuthorized());
   return (
     <div style={{}}>
       <NavBar></NavBar>
@@ -109,9 +117,7 @@ export default function Dashboard(props) {
 function NavBar(props) {
   return (
     <nav style={navbar}>
-      {/* <img src={img} width={60} style={{border: "1px solid red"}}/> */}
-      <h3>Fuku</h3>
-      <div>admin</div>
+      <Logo></Logo>
     </nav>
   );
 }
@@ -137,22 +143,18 @@ function SideBar(props) {
   return (
     <div className={styles["sideBar"]}>
       <ul className={styles["list-menu"]}>
-        {/* <li className={styles["menu-item"]}>
-          <i className="bx bx-home-alt-2 menu-icon"></i>
-          <span className={styles["menu-title"]}>Dashboard</span>
-        </li> */}
         <li
           className={styles[content.product ? "menu-item-active" : "menu-item"]}
           onClick={() => onClick("product")}
         >
-          <i className="bx bx-shopping-bag menu-icon"></i>
+          <ShoppingOutlined />
           <span className={styles["menu-title"]}>Product</span>
         </li>
         <li
           className={styles[content.account ? "menu-item-active" : "menu-item"]}
           onClick={() => onClick("account")}
         >
-          <i className="bx bx-user menu-icon"></i>
+          <UserOutlined />
           <span className={styles["menu-title"]}>Account</span>
         </li>
       </ul>
@@ -258,28 +260,35 @@ function Content(props) {
 }
 
 function Account(props) {
+  const admin = authAdmin.isAuthorized();
   return (
     <div style={{ margin: "30px" }}>
       <h4>Account info</h4>
       <table>
         <tr>
           <td style={td1}>Name:</td>
-          <td style={td2}>admin</td>
+          <td style={td2}>{admin.name}</td>
         </tr>
         <tr>
           <td style={td1}>Email:</td>
-          <td style={td2}>admin@gmail.com</td>
+          <td style={td2}>{admin.email}</td>
         </tr>
         <tr>
           <td style={td1}>Phone:</td>
-          <td style={td2}>082366971420</td>
+          <td style={td2}>{admin.phone}</td>
         </tr>
         <tr>
           <td style={td1}>Role:</td>
-          <td style={td2}>admin</td>
+          <td style={td2}>{admin.role}</td>
         </tr>
       </table>
-      <Button type="primary" htmlType="button">
+      <Button
+        type="primary"
+        htmlType="button"
+        onClick={() => {
+          authAdmin.logout();
+        }}
+      >
         Logout
       </Button>
     </div>

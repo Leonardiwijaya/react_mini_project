@@ -1,4 +1,4 @@
-import SetupRouter from './routers/setupRouter';
+import SetupRouter from './routers/index';
 
 function App() {
   return (

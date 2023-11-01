@@ -4,8 +4,17 @@ import styles from "../assets/css/style.module.css";
 import { Button} from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 import Rating from "../components/rating";
+import {auth} from "../utils/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function Product(props) {
+  const navigation = useNavigate();
+  const addWishlist = () => {
+    if (!auth.isAuthorized()) {
+      navigation('/login');
+    }
+  }
+
   return (
     <>
       <Navbar></Navbar>
@@ -41,6 +50,7 @@ export default function Product(props) {
             type="primary"
             htmlType="button"
             className={styles["wishlist-button"]}
+            onClick={() => addWishlist()}
           >
             Add to Wishlist
           </Button>

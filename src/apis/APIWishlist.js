@@ -1,10 +1,10 @@
 import { AxiosError } from "axios";
-import { axiosInstances } from "../configs/axiosInstance";
+import { axiosInstance } from "../configs/axiosInstance";
 
 export const APIProduct = {
   getProducts: async () => {
     try {
-      const result = await axiosInstances.get("product");
+      const result = await axiosInstance.get("product");
       return result.data;
     } catch (err) {
       if (err instanceof AxiosError) {
@@ -19,7 +19,7 @@ export const APIProduct = {
 
   addProduct: async (data) => {
     try {
-      await axiosInstances.post(`product`, data);
+      await axiosInstance.post(`product`, data);
     } catch (err) {
       if (err instanceof AxiosError) {
         const {
@@ -33,7 +33,7 @@ export const APIProduct = {
 
   updateProduct: async (id, data) => {
     try {
-      await axiosInstances.put(`product/${id}`, data);
+      await axiosInstance.put(`product/${id}`, data);
     } catch (err) {
       if (err instanceof AxiosError) {
         const {
@@ -46,7 +46,7 @@ export const APIProduct = {
   },
   deleteProduct: async (id) => {
     try {
-      await axiosInstances.delete(`product/${id}`);
+      await axiosInstance.delete(`product/${id}`);
     } catch (err) {
       if (err instanceof AxiosError) {
         const {
