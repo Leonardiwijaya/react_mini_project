@@ -181,6 +181,7 @@ table {
   margin-top: 120px;
   /* border: 1px solid black; */
   gap: 20px;
+  min-height: 600px;
 }
 
 .product-detail-img-container {
@@ -270,6 +271,7 @@ table {
   margin: auto;
   margin-top: 120px;
   margin-bottom: 40px;
+  min-height: 500px;
   /* border: 1px solid red; */
 }
 
@@ -309,11 +311,12 @@ table {
   -webkit-line-clamp: 2;
   white-space: pre-wrap;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   color: #212121;
   margin-bottom: 5px;
   /* border: 1px solid black; */
   margin-bottom: 0;
+  height: 44px;
 }
 
 .product-card-price {
