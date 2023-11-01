@@ -34,18 +34,22 @@ export default function Navbar(props) {
             <Logo to="/"></Logo>
             {!hide && (
               <div className={styles["navbar-menu-list"]}>
-                <Menu to="/Products/pria">PRIA</Menu>
-                <Menu to="/Products/wanita">WANITA</Menu>
-                <Menu to="/Products/anak">ANAK</Menu>
-                <Menu to="/Products/bayi">BAYI</Menu>
+                <Menu to="/products/pria">PRIA</Menu>
+                <Menu to="/products/wanita">WANITA</Menu>
+                <Menu to="/products/anak">ANAK</Menu>
+                <Menu to="/products/bayi">BAYI</Menu>
               </div>
             )}
           </div>
           {!hide && (
             <div className={styles["navbar-icons"]}>
               <Search
-                onPressEnter={() => {
-                  alert(2);
+                onPressEnter={(event) => {
+                  const search = event.target.value;
+                  navigation(`/products/search/${search}`)
+                }}
+                onSearch={(search) => {
+                  navigation(`/products/search/${search}`)
                 }}
                 placeholder="search"
                 style={{
@@ -56,7 +60,7 @@ export default function Navbar(props) {
               {user ? (
                 <Popover
                   placement="bottomRight"
-                  title={`Hi, ${user.name ?? "leo"}`}
+                  title={`Hi, ${user[0].name}`}
                   content={content}
                   trigger="click"
                 >
@@ -86,5 +90,28 @@ function Menu(props) {
     <Link to={props.to} className={styles["menu-link"]}>
       <h6>{props.children}</h6>
     </Link>
+  );
+}
+
+export function NavbarAdmin(params) {
+  const navbar = {
+    width: "100%",
+    height: "64px",
+    boxSizing: "border-box",
+    padding: "0 30px",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: "white",
+    boxShadow:
+      "0 1px 2px #00000008,0 1px 6px -1px #00000005,0 2px 4px #00000005",
+    position: "fixed",
+    zIndex: "10",
+  };
+  return (
+    <nav style={navbar}>
+      <Logo></Logo>
+    </nav>
   );
 }

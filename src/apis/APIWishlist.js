@@ -1,10 +1,10 @@
 import { AxiosError } from "axios";
-import { axiosInstance } from "../configs/axiosInstance";
+import { axiosInstances } from "../configs/axiosInstance";
 
-export const APIProduct = {
-  getProducts: async () => {
+export const APIWishlist = {
+  getWishlists: async (user_id) => {
     try {
-      const result = await axiosInstance.get("product");
+      const result = await axiosInstances.get(`wishlist/?user_id=${user_id}`);
       return result.data;
     } catch (err) {
       if (err instanceof AxiosError) {
@@ -17,9 +17,9 @@ export const APIProduct = {
     }
   },
 
-  addProduct: async (data) => {
+  addWishlist: async (data) => {
     try {
-      await axiosInstance.post(`product`, data);
+      await axiosInstances.post(`wishlist`, data);
     } catch (err) {
       if (err instanceof AxiosError) {
         const {
@@ -31,22 +31,9 @@ export const APIProduct = {
     }
   },
 
-  updateProduct: async (id, data) => {
+  deleteWishlist: async (id) => {
     try {
-      await axiosInstance.put(`product/${id}`, data);
-    } catch (err) {
-      if (err instanceof AxiosError) {
-        const {
-          data: { error },
-        } = err.response;
-        throw new AxiosError(error);
-      }
-      throw new Error(err);
-    }
-  },
-  deleteProduct: async (id) => {
-    try {
-      await axiosInstance.delete(`product/${id}`);
+      await axiosInstances.delete(`wishlist/${id}`);
     } catch (err) {
       if (err instanceof AxiosError) {
         const {

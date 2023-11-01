@@ -7,9 +7,9 @@ export default function Rating(props) {
       <Rate
         className={styles["product-detail-star"]}
         disabled
-        defaultValue={5}
+        defaultValue={(Math.random() * 6)+3}
       />
-      <span className={styles["product-detail-review"]}>(5)</span>
+      <span className={styles["product-detail-review"]}>({Math.floor(Math.random() * 51)+3})</span>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { Card } from "antd";
 import { FormInput } from "../components/form";
 import { Link, useNavigate } from "react-router-dom";
 import { APIUser } from "../apis/APIUser";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Register(props) {
   const navigation = useNavigate()
@@ -15,6 +16,7 @@ export default function Register(props) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     let data = {
+      uuid: uuidv4(),
       name: null,
       email: null,
       password: null,
@@ -52,7 +54,7 @@ export default function Register(props) {
                 name="password"
               ></FormInput>
               <button className={styles["form-button"]} htmltype="submit">
-                Login
+                Create Account
               </button>
               <div className={styles["login-register-link-container"]}>
                 <span className={styles["login-register-text"]}>Already Have An Account?</span>

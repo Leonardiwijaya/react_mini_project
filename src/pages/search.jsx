@@ -3,47 +3,33 @@ import Navbar from "../components/navbar";
 import styles from "../assets/css/style.module.css";
 import ProductCard from "../components/productCard";
 import { Pagination, Spin } from "antd";
-import { auth } from "../utils/auth";
+import { useParams } from "react-router-dom";
+import { APIProduct } from "../apis/APIProduct";
 import { useEffect, useState } from "react";
-import { APIWishlist } from "../apis/APIWishlist";
-import emptyWishlist from "../assets/img/empty-wishlist.png";
+import noData from "../assets/img/no-data.jpg";
 
-export default function Wishlist(props) {
+export default function Search(props) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [empty, setEmpty] = useState(false);
-  const user = auth.isAuthorized()[0];
+  let { search } = useParams();
   useEffect(() => {
     setLoading(true);
-    APIWishlist.getWishlists(user.uuid).then(resp => {
+    APIProduct.searchProducts(search).then((resp) => {
       setData(resp);
       setEmpty(!resp.length);
       setLoading(false);
     });
-  }, []);
+  }, [search]);
 
-  const deleteWishlist = (id) => {
-    APIWishlist.deleteWishlist(id);
-    APIWishlist.getWishlists(user.uuid).then(setData);
-    APIWishlist.getWishlists(user.uuid).then(resp => {
-      setData(resp);
-      setEmpty(!resp.length);
-    });
-  };
   return (
     <Spin tip="Loading..." spinning={loading}>
       <Navbar></Navbar>
       <div className={styles["product-list-container"]}>
-        <h4 className={styles["product-list-header"]}>Wishlist</h4>
+        <h4 className={styles["product-list-header"]}>SEARCH</h4>
         <div className={styles["product-list-content"]}>
-          {data.map((wishlist) => {
-            return (
-              <ProductCard
-                wishlist={true}
-                product={wishlist}
-                onDelete={() => deleteWishlist(wishlist.id)}
-              ></ProductCard>
-            );
+          {data.map((product) => {
+            return <ProductCard product={product}></ProductCard>;
           })}
         </div>
         {data?.length ? (
@@ -55,11 +41,15 @@ export default function Wishlist(props) {
             showSizeChanger={false}
           />
         ) : null}
-        {
-          empty && <img src={emptyWishlist} style={{display: "block", margin: "auto"}} alt="empty"></img>
-        }
+        {empty && (
+          <img
+            width="50%"
+            src={noData}
+            style={{ display: "block", margin: "auto" }}
+            alt="empty"
+          ></img>
+        )}
       </div>
-      
       <Footer></Footer>
     </Spin>
   );
