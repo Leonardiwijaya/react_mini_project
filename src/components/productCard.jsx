@@ -3,6 +3,7 @@ import { Button, Card, Popconfirm, message } from "antd";
 import styles from "../assets/css/style.module.css";
 import { useNavigate } from "react-router-dom";
 import Rating from "./rating";
+import placeholder from "../assets/img/placeholder.jpg";
 
 export default function ProductCard(props) {
   const [messageApi, contextHolder] = message.useMessage();
@@ -32,7 +33,7 @@ export default function ProductCard(props) {
         cover={
           <img
             alt="product"
-            src="https://res.cloudinary.com/dvu15ohox/image/upload/v1683003233/aerostreet-1.jpg"
+            src={product?.image ?? placeholder}
             width={270}
             height={270}
             onClick={() => (wishlist ? navigation("/product") : null)}

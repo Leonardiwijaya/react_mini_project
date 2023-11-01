@@ -57,7 +57,7 @@ export default function Product(props) {
         <div className={styles["product-detail-img-container"]}>
           <img
             className={styles["product-detail-img"]}
-            src={product?.img ?? img}
+            src={product?.image ?? img}
             alt="product"
           />
         </div>

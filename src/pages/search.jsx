@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { APIProduct } from "../apis/APIProduct";
 import { useEffect, useState } from "react";
 import noData from "../assets/img/no-data.jpg";
+import Chat from "../components/chat";
 
 export default function Search(props) {
   const [data, setData] = useState([]);
@@ -51,6 +52,7 @@ export default function Search(props) {
         )}
       </div>
       <Footer></Footer>
+      <Chat></Chat>
     </Spin>
   );
 }
