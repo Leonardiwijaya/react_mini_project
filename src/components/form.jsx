@@ -104,7 +104,7 @@ return (
   <div className={styles["input-container"]}>
     <label className={styles["label"]}>{label}</label>
     <input name={name} type={type} placeholder={placeholder} onChange={onChange} className={styles["input"]} />
-    {errorMessage && <p style={{color: "red"}}>{errorMessage}</p>}
+    {errorMessage && <p style={{color: "red", margin: 0}}>{errorMessage}</p>}
   </div>
 );
 }

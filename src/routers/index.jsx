@@ -11,11 +11,13 @@ import Login from "../pages/login";
 import { AdminProtectedRoute, ProtectedRoute } from "./protectedRoute";
 import { AdminPrivateRoute, PrivateRoute } from "./privateRoute";
 import Search from "../pages/search";
+import Chat from "../pages/chat";
 
 export default function SetupRouter() {
   return (
     <Routes>
       <Route path="/" element={<Home />}></Route>
+      <Route path="/chat" element={<Chat/>}></Route>
       <Route path="/product/:id" element={<Product />}></Route>
       <Route path="/products/:name" element={<Products />}></Route>
       <Route path="/products/search/:search" element={<Search />}></Route>

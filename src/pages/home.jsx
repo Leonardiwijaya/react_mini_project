@@ -5,6 +5,7 @@ import ProductCarousel from "../components/productCarousel";
 import ProductSection from "../components/productSection";
 import banner1 from "../assets/img/banner-1.jpg";
 import banner2 from "../assets/img/banner-2.png";
+import Chat from "../components/chat";
 
 export default function Home(props) {
   return (
@@ -16,6 +17,7 @@ export default function Home(props) {
       <Banner src={banner2}></Banner>
       <ProductSection header="Popular Products"></ProductSection>
       <Footer></Footer>
+      <Chat></Chat>
     </>
   );
 }
