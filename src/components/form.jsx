@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Input, Button } from "antd";
 import { useNavigate } from "react-router-dom";
+import styles from "../assets/css/style.module.css";
 
 export function Form(props) {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -95,6 +96,17 @@ export function Label(props) {
       {props.children}
     </label>
   );
+}
+
+export function FormInput(props) {
+  const {type, label, name, placeholder, errorMessage, onChange} = props;
+return (
+  <div className={styles["input-container"]}>
+    <label className={styles["label"]}>{label}</label>
+    <input name={name} type={type} placeholder={placeholder} onChange={onChange} className={styles["input"]} />
+    {errorMessage && <p style={{color: "red"}}>{errorMessage}</p>}
+  </div>
+);
 }
 
 export function ErrorMessage(props) {
