@@ -36,7 +36,7 @@ export default function ProductCard(props) {
             src={product?.image ?? placeholder}
             width={270}
             height={270}
-            onClick={() => (wishlist ? navigation("/product") : null)}
+            onClick={() => (wishlist ? navigation(`/product/${product?.id}`) : null)}
           />
         }
       >
