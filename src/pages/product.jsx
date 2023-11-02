@@ -13,7 +13,7 @@ import { v4 as uuidv4 } from "uuid";
 import img from "../assets/img/placeholder.jpg";
 
 export default function Product(props) {
-  const user = auth.isAuthorized()[0];
+  const user = auth.isAuthorized();
   const [loading, setLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
   const [product, setProduct] = useState([]);
